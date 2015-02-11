@@ -1,0 +1,30 @@
+U    configure
+ U   apps\gdaldem.cpp
+ U   doc\ru\Doxyfile
+U    configure.in
+U    ogr\ogrsf_frmts\vfk\vfkreadersqlite.cpp
+U    ogr\ogrsf_frmts\couchdb\ogrcouchdbdatasource.cpp
+U    ogr\ogrsf_frmts\gme\ogr_gme.h
+U    ogr\ogrsf_frmts\gme\ogrgmejson.cpp
+U    ogr\ogrsf_frmts\gme\ogrgmelayer.cpp
+ U   ogr\ogrsf_frmts\gme
+U    ogr\ogrsf_frmts\gpkg\ogrgeopackagelayer.cpp
+U    ogr\ogrsf_frmts\geojson\ogrgeojsonreader.cpp
+U    ogr\ogrsf_frmts\geojson\ogrtopojsonreader.cpp
+U    ogr\ogrsf_frmts\geojson\ogresrijsonreader.cpp
+U    ogr\ogrsf_frmts\cartodb\ogrcartodbdatasource.cpp
+U    frmts\gtiff\libtiff\tif_jpeg.c
+ U   frmts\gif\giflib
+ U   frmts\nitf
+ U   frmts\envisat
+ U   frmts\tsx
+U    frmts\jpipkak\jpipkakdataset.cpp
+U    frmts\dimap\dimapdataset.cpp
+ U   frmts\raw\btdataset.cpp
+ U   frmts\georaster\georaster_wrapper.cpp
+U    frmts\mbtiles\mbtilesdataset.cpp
+U    gcore\gdalpamrasterband.cpp
+ U   gcore\gdalrasterband.cpp
+U    gcore\gdalexif.cpp
+ U   .
+Updated to revision 27203.

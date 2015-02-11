@@ -1,0 +1,434 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BA37E403-5FCD-4DA5-8A6D-184B80739554}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GisConvert</RootNamespace>
+    <AssemblyName>GisConvert</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ManyConsole">
+      <HintPath>packages\ManyConsole.0.4.2.17\lib\ManyConsole.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.ConnectionUI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=f4ca07f51760da93, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\DataConnectionDialog.1.2\Lib\Microsoft.Data.ConnectionUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.ConnectionUI.Dialog, Version=0.0.0.0, Culture=neutral, PublicKeyToken=f4ca07f51760da93, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\DataConnectionDialog.1.2\Lib\Microsoft.Data.ConnectionUI.Dialog.dll</HintPath>
+    </Reference>
+    <Reference Include="NDesk.Options">
+      <HintPath>packages\NDesk.Options.0.2.1\lib\NDesk.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommandRunner.cs" />
+    <Compile Include="AddContextMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddContextMenuForm.Designer.cs">
+      <DependentUpon>AddContextMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConvertCommand.cs" />
+    <Compile Include="Ogr2ogrCommand.cs" />
+    <Compile Include="OutputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OutputForm.Designer.cs">
+      <DependentUpon>OutputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoCommand.cs" />
+    <Compile Include="OgrinfoCommand.cs" />
+    <Compile Include="AddRemoveCommand.cs" />
+    <Compile Include="Ogr2ogrForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ogr2ogrForm.Designer.cs">
+      <DependentUpon>Ogr2ogrForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddContextMenuForm.resx">
+      <DependentUpon>AddContextMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutputForm.resx">
+      <DependentUpon>OutputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ogr2ogrForm.resx">
+      <DependentUpon>Ogr2ogrForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\curl\curl-ca-bundle.crt" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\compdcs.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\coordinate_axis.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\cubewerx_extra.wkt" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\datum_shift.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\ecw_cs.wkt" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\ellipsoid.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\epsg.wkt" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\esri_extra.wkt" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\esri_StatePlane_extra.wkt" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\esri_Wisconsin_extra.wkt" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\gcs.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\gcs.override.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\gdal_datum.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\geoccs.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\gt_datum.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\gt_ellips.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\header.dxf" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\inspire_cp_BasicPropertyUnit.gfs" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\inspire_cp_CadastralBoundary.gfs" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\inspire_cp_CadastralParcel.gfs" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\inspire_cp_CadastralZoning.gfs" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\nitf_spec.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\ogrvrt.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\osmconf.ini" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\ozi_datum.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\ozi_ellips.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\pcs.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\pcs.override.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\prime_meridian.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\projop_wparm.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\ruian_vf_ob_v1.gfs" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\ruian_vf_st_v1.gfs" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\s57agencies.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\s57attributes.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\s57attributes_aml.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\s57attributes_iw.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\s57expectedinput.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\s57objectclasses.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\s57objectclasses_aml.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\s57objectclasses_iw.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\seed_2d.dgn" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\seed_3d.dgn" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\stateplane.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\trailer.dxf" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\unit_of_measure.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\vertcs.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\vertcs.override.csv" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\gdal.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\gdalconst.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\gdalnumeric.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\ogr.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\osgeo\gdal.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\osgeo\gdalconst.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\osgeo\gdalnumeric.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\osgeo\gdal_array.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\osgeo\ogr.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\osgeo\osr.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\osgeo\_gdal.pyd" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\osgeo\_gdalconst.pyd" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\osgeo\_gdal_array.pyd" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\osgeo\_ogr.pyd" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\osgeo\_osr.pyd" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\osgeo\__init__.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\osr.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\epsg_tr.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\esri2wkt.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\gcps2vec.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\gcps2wld.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\gdal2tiles.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\gdal2xyz.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\gdalchksum.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\gdalcompare.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\gdalident.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\gdalimport.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\gdalmove.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\gdal_auth.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\gdal_calc.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\gdal_edit.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\gdal_fillnodata.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\gdal_merge.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\gdal_polygonize.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\gdal_proximity.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\gdal_retile.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\gdal_sieve.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\mkgraticule.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\pct2rgb.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\python\scripts\rgb2pct.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\python\mapscript.py" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\python\_mapscript.pyd" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\alaska" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\conus" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\epsg" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\esri" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\esri.extra" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\GL27" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\hawaii" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\IGNF" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\MD" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\nad27" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\nad83" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\ntf_r93.gsb" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\ntv1_can.dat" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\null" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\nzgd2kgrid0005.gsb" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\other.extra" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\proj_def.dat" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\prvi" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\stgeorge" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\stlrnc" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\stpaul" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\TN" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\WI" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\WO" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\world" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\ECW5License.rtf" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\ECWLicense.rtf" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\FileGDBLicense.rtf" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\FITSLicense.rtf" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\GDALLicense.rtf" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\GISInternalsLicense.rtf" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\HDF4License.rtf" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\HDF5License.rtf" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\MRSIDLicense.rtf" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\NetCDFLicense.rtf" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\OCILicense.rtf" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\SDKShell.bat" />
+    <None Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\SZIPLicense.rtf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\cairo.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\cfitsio.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\curl\curl.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\curl\openssl.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\debug\dbghelp.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\debug\vld_x64.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\freexl.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\fribidi.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ftgl.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\gdalicon.png" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\GDALLogoBW.svg" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\GDALLogoColor.svg" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\GDALLogoGS.svg" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\gml_registry.xml" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\nitf_spec.xml" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\pci_datum.txt" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal-data\pci_ellips.txt" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal111.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\gdaladdo.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\gdalbuildvrt.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\gdaldem.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\gdalenhance.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\gdalinfo.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\gdallocationinfo.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\gdalmanage.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\gdalserver.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\gdalsrsinfo.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\gdaltindex.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\gdaltransform.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\gdalwarp.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\gdal_contour.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\gdal_grid.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\gdal_rasterize.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\gdal_translate.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\nearblack.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\ogr2ogr.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\ogrinfo.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\ogrlineref.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\ogrtindex.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\apps\testepsg.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\createdata.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\GDALAdjustContrast.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\GDALColorTable.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\gdalconst_csharp.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\gdalconst_wrap.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\GDALCreateCopy.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\GDALDatasetRasterIO.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\GDALDatasetWrite.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\GDALGetHistogram.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\GDALInfo.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\GDALMemDataset.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\GDALOverviews.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\GDALRead.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\GDALReadDirect.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\GDALWrite.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\gdal_csharp.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\gdal_wrap.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\OGRGEOS.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\ogrinfo.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\OGRLayerAlg.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\ogr_csharp.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\ogr_wrap.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\OSRTransform.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\osr_csharp.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\osr_wrap.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\ReadXML.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\VSIMem.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\csharp\WKT2WKB.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\java\gdal.jar" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\java\gdalconstjni.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\java\gdaljni.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\java\ogrjni.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\java\osrjni.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\plugins-external\ogr_FileGDB.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\plugins-optional\ogr_PG.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\plugins\gdal_BAG.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\plugins\gdal_ECW_JP2ECW.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\plugins\gdal_FITS.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\plugins\gdal_GEOR.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\plugins\gdal_GMT.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\plugins\gdal_HDF4.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\plugins\gdal_HDF4Image.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\plugins\gdal_HDF5.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\plugins\gdal_HDF5Image.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\plugins\gdal_MrSID.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\plugins\gdal_netCDF.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\gdal\plugins\ogr_OCI.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\geos.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\geos_c.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\hdf5.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\hdf5dll.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\hdf5_hl.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\hdfdll.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\iconv.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\libcurl.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\libeay32.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\libecwj2.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\libexpat.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\libfcgi.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\libmysql.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\libpq.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\libtiff.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\libxml2.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\lti_dsdk_9.0.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\lti_lidar_dsdk_1.1.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\mapserver.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\mfhdfdll.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\msplugin_sde91.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\msplugin_sde92.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\msvcp100.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\msvcr100.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\apps\legend.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\apps\mapserv.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\apps\msencrypt.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\apps\scalebar.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\apps\shp2img.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\apps\shptree.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\apps\shptreetst.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\apps\shptreevis.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\apps\sortshp.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\apps\tile4ms.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\csharp\drawmap.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\csharp\drawmapDirect.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\csharp\drawmapDirectPrint.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\csharp\drawquery.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\csharp\getbytes.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\csharp\HTMLtemplate.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\csharp\mapscript.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\csharp\mapscript_csharp.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\csharp\RFC24.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\csharp\shapeinfo.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\csharp\shpdump.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\java\javamapscript.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\java\mapscript.jar" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\plugins\mssql2008\msplugin_mssql2008.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ms\plugins\oci\msplugin_oracle.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\NCSEcw.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\netcdf.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\openjp2.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\openjpeg.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\pdflib.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\apps\cs2cs.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\apps\geod.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\apps\nad2bin.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\apps\proj.exe" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\proj\SHARE\nad.lst" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\spatialite.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\sqlite3.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\ssleay32.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\szip.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\tbb.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\xdrdll.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\xerces-c_2_8.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\bin\zlib1.dll" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\changelog.txt" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\doc\gdal_deps.txt" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\doc\gdal_formats.txt" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\doc\gdal_revision.txt" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\doc\gdal_version.txt" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\doc\ms_deps.txt" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\doc\ms_revision.txt" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\doc\ms_version.txt" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\doc\ogr_formats.txt" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\license.txt" />
+    <Content Include="release-1600-x64-gdal-1-11-0-mapserver-6-4-1\read-me.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>xcopy /Y /Q /E $(SolutionDir)\release-1600-x64-gdal-1-11-0-mapserver-6-4-1\* $(TargetDir)</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
