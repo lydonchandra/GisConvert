@@ -15,7 +15,7 @@ goto exit
 
 if "%2"=="hideoci" goto hideoci
 
-set ocipath=0
+set ocipath=1
 set _path="%PATH:;=" "%"
 for %%p in (%_path%) do if not "%%~p"=="" if exist %%~p\oci.dll set ocipath=1
 
@@ -31,7 +31,7 @@ if exist "%SDK_ROOT%bin\gdal\plugins\ogr_OCI.dll" move "%SDK_ROOT%bin\gdal\plugi
 if exist "%SDK_ROOT%bin\gdal\plugins\gdal_GEOR.dll" move "%SDK_ROOT%bin\gdal\plugins\gdal_GEOR.dll" "%SDK_ROOT%bin\gdal\plugins-optional\gdal_GEOR.dll"
 
 :setenv2
-SET "PATH=%SDK_ROOT%bin;%SDK_ROOT%bin\gdal\python\osgeo;%SDK_ROOT%bin\proj\apps;%SDK_ROOT%bin\gdal\apps;%SDK_ROOT%bin\ms\apps;%SDK_ROOT%bin\gdal\csharp;%SDK_ROOT%bin\ms\csharp;%SDK_ROOT%bin\curl;%PATH%"
+SET "PATH=%SDK_ROOT%bin;%SDK_ROOT%bin\gdal\python\osgeo;%SDK_ROOT%bin\proj\apps;%SDK_ROOT%bin\gdal\apps;%SDK_ROOT%bin\ms\apps;%SDK_ROOT%bin\gdal\csharp;%SDK_ROOT%bin\ms\csharp;%SDK_ROOT%bin\curl;%SDK_ROOT%bin\instantclient_12_1;%PATH%"
 SET "GDAL_DATA=%SDK_ROOT%bin\gdal-data"
 SET "GDAL_DRIVER_PATH=%SDK_ROOT%bin\gdal\plugins"
 SET "PYTHONPATH=%SDK_ROOT%bin\gdal\python;%SDK_ROOT%bin\ms\python"

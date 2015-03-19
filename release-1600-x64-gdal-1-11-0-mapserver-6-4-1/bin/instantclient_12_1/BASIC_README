@@ -1,0 +1,14 @@
+Basic Package Information 
+========================= 
+Thu Sep 11 02:53:25 CDT 2014
+Client Shared Library 64-bit - 12.1.0.2.0
+
+Windows NT Version V6.1 Service Pack 1 
+CPU                 : 2 - type 8664, 2 Physical Cores
+Process Affinity    : 0x0x0000000000000000
+Memory (Avail/Total): Ph:10314M/11999M, Ph+PgF:22367M/23997M VM name             : VMWare Version (6)
+
+Operating in ORACLE_HOME environment.
+Small timezone file = C:\ADE\aime_956679\oracle\oracore\zoneinfo\timezone_18.dat
+Large timezone file = C:\ADE\aime_956679\oracle\oracore\zoneinfo\timezlrg_18.dat
+
