@@ -66,6 +66,7 @@ namespace GisConvert
             Dictionary<string, string> outputDict = new Dictionary<string, string>();
             outputDict.Add("Esri Shapefile", "shp");
             outputDict.Add("MapInfo File", "tab");
+            outputDict.Add("OCI", "oci");
             outputDict.Add("GeoJSON", "json");
             outputDict.Add("SQLite", "sqlite");
 
@@ -160,14 +161,24 @@ namespace GisConvert
                 {
                     return "outputFormat is empty";
                 }
-                
-                string fileName = Path.GetFileNameWithoutExtension(filePath);
-                string fileDir = Path.GetDirectoryName(filePath);
-                string value = ((KeyValuePair<string, string>)this.cmbOutputFormat.SelectedItem).Value;
-                string fileExtension = "." + value;
-                string outputFilePath = fileDir + Path.DirectorySeparatorChar + fileName + fileExtension;
 
-                finalOgrCommand = string.Format("ogr2ogr.exe -overwrite -f \"{0}\" {1} {2} \"{3}\" \"{4}\"", outputFormat, transformSrs, sourceSrs,outputFilePath, inputFilePath);
+                string ociConnStr = "";
+                if (outputFormat.ToUpper() == "OCI")
+                {
+                    ociConnStr = "OCI:username/password@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = hostname)(PORT = 1521)))(CONNECT_DATA = (SID =oraclesid)))";
+                    finalOgrCommand = string.Format("ogr2ogr.exe -overwrite -f OCI \"{0}\" \"{1}\" {2} {3}", ociConnStr, inputFilePath, transformSrs, sourceSrs);
+                }
+                else
+                {
+
+                    string fileName = Path.GetFileNameWithoutExtension(filePath);
+                    string fileDir = Path.GetDirectoryName(filePath);
+                    string value = ((KeyValuePair<string, string>)this.cmbOutputFormat.SelectedItem).Value;
+                    string fileExtension = "." + value;
+                    string outputFilePath = fileDir + Path.DirectorySeparatorChar + fileName + fileExtension;
+
+                    finalOgrCommand = string.Format("ogr2ogr.exe -overwrite -f \"{0}\" {1} {2} \"{3}\" \"{4}\"", outputFormat, transformSrs, sourceSrs, outputFilePath, inputFilePath);
+                }
             }
             return finalOgrCommand;
         }
